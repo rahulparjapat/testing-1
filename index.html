@@ -1,0 +1,2641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#121212">
+    <meta name="description" content="Solo Leveling System - Professional SSC Exam Preparation">
+    <title>Solo Leveling System - Crack SSC Like a Hunter</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1f1f1f;
+            --bg-card-hover: #252525;
+            --accent-primary: #3a7bd5;
+            --accent-secondary: #4aa3a3;
+            --accent-success: #4a9f6e;
+            --accent-warning: #c9a227;
+            --accent-danger: #c75050;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #6a6a6a;
+            --border-color: #2a2a2a;
+            --shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 8px 0;
+        }
+
+        .nav-scroll {
+            display: flex;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0 8px;
+            gap: 4px;
+        }
+
+        .nav-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 12px;
+            min-width: 64px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            color: var(--text-secondary);
+            font-size: 10px;
+            text-decoration: none;
+        }
+
+        .nav-item:hover {
+            background: var(--bg-card);
+        }
+
+        .nav-item.active {
+            background: var(--bg-card);
+            color: var(--accent-primary);
+        }
+
+        .nav-item svg {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 4px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 16px;
+            padding-bottom: 100px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Header */
+        .page-header {
+            margin-bottom: 24px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-top: 16px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-primary);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4a8be5;
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .btn-danger {
+            background: var(--accent-danger);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--accent-success);
+            color: white;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Study Session */
+        .session-timer {
+            text-align: center;
+            padding: 32px 0;
+        }
+
+        .timer-display {
+            font-size: 48px;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            color: var(--accent-primary);
+        }
+
+        .session-status {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* Lists */
+        .list-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .list-item:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .list-item-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            background: var(--bg-card);
+        }
+
+        .list-item-content {
+            flex: 1;
+        }
+
+        .list-item-title {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .list-item-subtitle {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .list-item-meta {
+            text-align: right;
+        }
+
+        /* Skill Tree */
+        .skill-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+        }
+
+        .skill-level {
+            font-size: 12px;
+            color: var(--accent-secondary);
+            background: rgba(74, 163, 163, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .skill-xp-bar {
+            height: 6px;
+            background: var(--bg-card);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-xp-fill {
+            height: 100%;
+            background: var(--accent-secondary);
+            border-radius: 3px;
+        }
+
+        /* Habits */
+        .habit-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .habit-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            margin-right: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .habit-checkbox.checked {
+            background: var(--accent-success);
+            border-color: var(--accent-success);
+        }
+
+        .habit-info {
+            flex: 1;
+        }
+
+        .habit-name {
+            font-weight: 500;
+        }
+
+        .habit-streak {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Rank Badge */
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .rank-E { background: linear-gradient(135deg, #4a4a4a, #3a3a3a); color: #888; }
+        .rank-D { background: linear-gradient(135deg, #5a4a3a, #4a3a2a); color: #c9a86c; }
+        .rank-C { background: linear-gradient(135deg, #3a4a5a, #2a3a4a); color: #6ac9c9; }
+        .rank-B { background: linear-gradient(135deg, #4a5a3a, #3a4a2a); color: #8ac96a; }
+        .rank-A { background: linear-gradient(135deg, #5a3a5a, #4a2a4a); color: #c96ac9; }
+        .rank-S { background: linear-gradient(135deg, #5a4a2a, #4a3a1a); color: #ffd700; }
+
+        /* Rewards */
+        .reward-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .reward-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        .reward-info {
+            flex: 1;
+        }
+
+        .reward-name {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .reward-cost {
+            font-size: 12px;
+            color: var(--accent-warning);
+        }
+
+        .reward-claimed {
+            font-size: 12px;
+            color: var(--accent-success);
+        }
+
+        /* Awakening */
+        .vision-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--accent-success);
+        }
+
+        .vision-card.anti {
+            border-left-color: var(--accent-danger);
+        }
+
+        .vision-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .vision-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+
+        /* History */
+        .history-item {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 8px;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .history-topic {
+            font-weight: 500;
+        }
+
+        .history-xp {
+            color: var(--accent-success);
+            font-weight: 600;
+        }
+
+        .history-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .history-details {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 10px 16px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 16px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 480px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3000;
+        }
+
+        .toast {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 8px;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow);
+            min-width: 280px;
+        }
+
+        .toast.show {
+            display: flex;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .toast.success { border-left: 4px solid var(--accent-success); }
+        .toast.error { border-left: 4px solid var(--accent-danger); }
+        .toast.warning { border-left: 4px solid var(--accent-warning); }
+
+        /* Quests */
+        .quest-card {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--border-color);
+        }
+
+        .quest-card.active {
+            border-left-color: var(--accent-primary);
+        }
+
+        .quest-card.completed {
+            border-left-color: var(--accent-success);
+            opacity: 0.7;
+        }
+
+        .quest-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .quest-title {
+            font-weight: 500;
+        }
+
+        .quest-xp {
+            font-size: 12px;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .quest-progress {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Mock Boss */
+        .boss-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .boss-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-danger), var(--accent-warning));
+        }
+
+        .boss-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .boss-info {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        /* Utility */
+        .text-success { color: var(--accent-success); }
+        .text-danger { color: var(--accent-danger); }
+        .text-warning { color: var(--accent-warning); }
+        .text-muted { color: var(--text-muted); }
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 16px; }
+        .mb-4 { margin-bottom: 16px; }
+        .flex { display: flex; }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .gap-2 { gap: 8px; }
+        .gap-3 { gap: 12px; }
+
+        /* Study Stages */
+        .stage-indicator {
+            display: flex;
+            margin-bottom: 24px;
+        }
+
+        .stage {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            position: relative;
+        }
+
+        .stage::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--border-color);
+        }
+
+        .stage:last-child::after {
+            display: none;
+        }
+
+        .stage::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--border-color);
+        }
+
+        .stage:first-child::before {
+            display: none;
+        }
+
+        .stage-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stage.active .stage-number {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .stage.completed .stage-number {
+            background: var(--accent-success);
+            border-color: var(--accent-success);
+        }
+
+        .stage-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        .stage.active .stage-label,
+        .stage.completed .stage-label {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (min-width: 640px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .nav-item {
+                min-width: 80px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Page -->
+        <div class="page active" id="pageDashboard">
+            <div class="page-header">
+                <h1 class="page-title">Solo Leveling System</h1>
+                <p class="page-subtitle">Crack SSC Like a Hunter</p>
+            </div>
+
+            <div class="card">
+                <div class="flex-between mb-4">
+                    <div>
+                        <div class="text-muted" style="font-size: 12px;">CURRENT RANK</div>
+                        <div style="font-size: 20px; font-weight: 600;" id="dashRankName">E - Beginner</div>
+                    </div>
+                    <div class="rank-badge rank-E" id="dashRankBadge">E</div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="dashLevel">1</div>
+                        <div class="stat-label">Level</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="dashXP">0</div>
+                        <div class="stat-label">Total XP</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="dashGold">0</div>
+                        <div class="stat-label">Gold</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="dashStreak">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Level <span id="dashCurrentLvl">1</span></span>
+                        <span><span id="dashXPCurrent">0</span> / <span id="dashXPNeeded">100</span> XP</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="dashXPBar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Weekly XP Status</div>
+                <div class="flex-between">
+                    <div>
+                        <span id="dashWeeklyXP">0</span> / 300 XP
+                    </div>
+                    <div class="text-muted" style="font-size: 12px;">
+                        Rollover: <span id="dashRollover">0</span> XP
+                    </div>
+                </div>
+                <div class="progress-container" style="margin-top: 12px;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="dashWeeklyBar" style="width: 0%; background: var(--accent-secondary);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Today's Summary</div>
+                <div class="flex-between" style="margin-bottom: 8px;">
+                    <span>Study Sessions</span>
+                    <span id="dashTodaySessions">0</span>
+                </div>
+                <div class="flex-between" style="margin-bottom: 8px;">
+                    <span>Study Time</span>
+                    <span id="dashTodayTime">0 min</span>
+                </div>
+                <div class="flex-between">
+                    <span>XP Earned</span>
+                    <span class="text-success" id="dashTodayXP">+0 XP</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Status Alerts</div>
+                <div id="dashAlerts">
+                    <div class="text-muted">No alerts</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Study Page -->
+        <div class="page" id="pageStudy">
+            <div class="page-header">
+                <h1 class="page-title">Verified Study</h1>
+                <p class="page-subtitle">Intent - Evidence - Confirmation</p>
+            </div>
+
+            <div class="stage-indicator" id="stageIndicator">
+                <div class="stage active" data-stage="1">
+                    <div class="stage-number">1</div>
+                    <div class="stage-label">Intent</div>
+                </div>
+                <div class="stage" data-stage="2">
+                    <div class="stage-number">2</div>
+                    <div class="stage-label">Evidence</div>
+                </div>
+                <div class="stage" data-stage="3">
+                    <div class="stage-number">3</div>
+                    <div class="stage-label">Confirm</div>
+                </div>
+            </div>
+
+            <!-- Stage 1: Intent -->
+            <div class="card" id="studyStage1">
+                <div class="card-title">Declare Your Intent</div>
+                
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <select class="form-select" id="studySubject">
+                        <option value="">Select Subject</option>
+                        <option value="Quantitative Aptitude">Quantitative Aptitude</option>
+                        <option value="English Language">English Language</option>
+                        <option value="General Intelligence">General Intelligence</option>
+                        <option value="General Awareness">General Awareness</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Topic</label>
+                    <input type="text" class="form-input" id="studyTopic" placeholder="e.g., Percentage, Profit & Loss">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Study Phase</label>
+                    <select class="form-select" id="studyPhase">
+                        <option value="learning">Learning (20 XP/hr)</option>
+                        <option value="revision">Revision (15 XP/hr)</option>
+                        <option value="mock_analysis">Mock Analysis (25 XP/hr)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Expected Duration (minutes)</label>
+                    <input type="number" class="form-input" id="studyDuration" placeholder="Minimum 20 minutes" min="20">
+                    <div class="form-hint">Minimum valid session: 20 minutes</div>
+                </div>
+
+                <button class="btn btn-primary btn-block" id="btnStartStudy">Start Study Session</button>
+            </div>
+
+            <!-- Stage 2: Evidence (During Study) -->
+            <div class="card" id="studyStage2" style="display: none;">
+                <div class="session-timer">
+                    <div class="timer-display" id="studyTimer">00:00:00</div>
+                    <div class="session-status">
+                        <span id="studyCurrentTopic">Topic Name</span> - <span id="studyCurrentPhase">Learning</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Study Evidence</label>
+                    <textarea class="form-textarea" id="studyEvidence" placeholder="Write key points, formulas, or concepts you learned. This is your proof of study."></textarea>
+                    <div class="form-hint">
+                        <span id="evidenceCharCount">0</span>/200 characters minimum
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <button class="btn btn-secondary" style="flex: 1;" id="btnPauseStudy">Pause</button>
+                    <button class="btn btn-primary" style="flex: 1;" id="btnEndStudy">End Session</button>
+                </div>
+            </div>
+
+            <!-- Stage 3: Confirmation -->
+            <div class="card" id="studyStage3" style="display: none;">
+                <div class="card-title">Session Reflection</div>
+
+                <div style="background: var(--bg-secondary); border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+                    <div class="flex-between" style="margin-bottom: 8px;">
+                        <span class="text-muted">Topic</span>
+                        <span id="confirmTopic">-</span>
+                    </div>
+                    <div class="flex-between" style="margin-bottom: 8px;">
+                        <span class="text-muted">Duration</span>
+                        <span id="confirmDuration">-</span>
+                    </div>
+                    <div class="flex-between">
+                        <span class="text-muted">Potential XP</span>
+                        <span class="text-success" id="confirmXP">-</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">What was the hardest part?</label>
+                    <textarea class="form-textarea" id="studyHardest" style="min-height: 80px;" placeholder="Reflect on what challenged you most"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">What mistake did you make or might make?</label>
+                    <textarea class="form-textarea" id="studyMistake" style="min-height: 80px;" placeholder="Identify potential errors or misconceptions"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Revision note for future</label>
+                    <textarea class="form-textarea" id="studyRevisionNote" style="min-height: 80px;" placeholder="What should you remember to review?"></textarea>
+                </div>
+
+                <button class="btn btn-success btn-block" id="btnConfirmStudy">Confirm & Claim XP</button>
+            </div>
+
+            <!-- Active Session Indicator -->
+            <div class="card" id="activeSessionCard" style="display: none;">
+                <div class="flex-between">
+                    <div>
+                        <div class="text-muted" style="font-size: 12px;">ACTIVE SESSION</div>
+                        <div id="activeSessionTopic">-</div>
+                    </div>
+                    <button class="btn btn-secondary" id="btnResumeSession">Resume</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quests Page -->
+        <div class="page" id="pageQuests">
+            <div class="page-header">
+                <h1 class="page-title">Study Quests</h1>
+                <p class="page-subtitle">Daily and weekly challenges</p>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-tab="daily">Daily</div>
+                <div class="tab" data-tab="weekly">Weekly</div>
+                <div class="tab" data-tab="special">Special</div>
+            </div>
+
+            <div id="questsList">
+                <!-- Quests will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Skills Page -->
+        <div class="page" id="pageSkills">
+            <div class="page-header">
+                <h1 class="page-title">Skill Trees</h1>
+                <p class="page-subtitle">Subject mastery progress</p>
+            </div>
+
+            <div id="skillsList">
+                <!-- Skills will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Habits Page -->
+        <div class="page" id="pageHabits">
+            <div class="page-header">
+                <h1 class="page-title">Habits</h1>
+                <p class="page-subtitle">Build consistency, build success</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Daily Habits</div>
+                <div id="dailyHabits">
+                    <!-- Habits will be loaded here -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Weekly Habits</div>
+                <div id="weeklyHabits">
+                    <!-- Weekly habits will be loaded here -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Habit Statistics</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="habitCompletion">0%</div>
+                        <div class="stat-label">Completion Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="habitBestStreak">0</div>
+                        <div class="stat-label">Best Streak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mocks Page -->
+        <div class="page" id="pageMocks">
+            <div class="page-header">
+                <h1 class="page-title">Boss Battles</h1>
+                <p class="page-subtitle">Mock tests and rank protection</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Rank Protection Status</div>
+                <div class="flex-between">
+                    <span>Days since last mock</span>
+                    <span id="mockDaysSince">0 days</span>
+                </div>
+                <div class="flex-between mt-4">
+                    <span>Protection Status</span>
+                    <span id="mockProtection" class="text-success">Protected</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Record Mock Attempt</div>
+                
+                <div class="form-group">
+                    <label class="form-label">Mock Type</label>
+                    <select class="form-select" id="mockType">
+                        <option value="sectional">Sectional Mock (Partial Protection)</option>
+                        <option value="full">Full Mock (Full Protection)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Mock Name/Source</label>
+                    <input type="text" class="form-input" id="mockName" placeholder="e.g., Testbook SSC CGL Mock 15">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Score (%)</label>
+                    <input type="number" class="form-input" id="mockScore" min="0" max="100" placeholder="Your score percentage">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Time Taken (minutes)</label>
+                    <input type="number" class="form-input" id="mockTime" placeholder="Time taken to complete">
+                </div>
+
+                <button class="btn btn-primary btn-block" id="btnRecordMock">Record Mock Attempt</button>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Mock History</div>
+                <div id="mockHistory">
+                    <div class="empty-state">
+                        <p>No mock attempts recorded yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rewards Page -->
+        <div class="page" id="pageRewards">
+            <div class="page-header">
+                <h1 class="page-title">Rewards</h1>
+                <p class="page-subtitle">Earned through discipline</p>
+            </div>
+
+            <div class="card">
+                <div class="flex-between">
+                    <div>
+                        <div class="text-muted" style="font-size: 12px;">AVAILABLE GOLD</div>
+                        <div style="font-size: 28px; font-weight: 700; color: var(--accent-warning);" id="rewardsGold">0</div>
+                    </div>
+                    <div style="font-size: 32px;">&#9733;</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Available Rewards</div>
+                <div id="rewardsList">
+                    <!-- Rewards will be loaded here -->
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Claimed Rewards</div>
+                <div id="claimedRewards">
+                    <div class="empty-state">
+                        <p>No rewards claimed yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awakening Page -->
+        <div class="page" id="pageAwakening">
+            <div class="page-header">
+                <h1 class="page-title">Awakening</h1>
+                <p class="page-subtitle">Your purpose and anti-purpose</p>
+            </div>
+
+            <div class="vision-card">
+                <div class="vision-title">Vision - Why You Must Succeed</div>
+                <div class="vision-text" id="visionText">Define your vision for success...</div>
+                <button class="btn btn-secondary mt-4" id="btnEditVision">Edit Vision</button>
+            </div>
+
+            <div class="vision-card anti">
+                <div class="vision-title">Anti-Vision - What Failure Looks Like</div>
+                <div class="vision-text" id="antiVisionText">Define what you're running from...</div>
+                <button class="btn btn-secondary mt-4" id="btnEditAntiVision">Edit Anti-Vision</button>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Reflect On This</div>
+                <div class="text-muted" style="line-height: 1.8;">
+                    Every hour you waste, someone else is studying.<br>
+                    Every excuse you make, someone else is solving.<br>
+                    Every day you skip, you're choosing the anti-vision.<br><br>
+                    Selection is not luck. It's accumulated discipline.
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Page -->
+        <div class="page" id="pageReport">
+            <div class="page-header">
+                <h1 class="page-title">Study Report</h1>
+                <p class="page-subtitle">Complete audit trail</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Journey Statistics</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="reportDays">0</div>
+                        <div class="stat-label">Days Active</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="reportHours">0</div>
+                        <div class="stat-label">Total Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="reportSessions">0</div>
+                        <div class="stat-label">Sessions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="reportFailures">0</div>
+                        <div class="stat-label">Failures</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Study History</div>
+                <div id="studyHistory">
+                    <div class="empty-state">
+                        <p>No study sessions recorded yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-block" id="btnExportPDF">Export Full Report (PDF)</button>
+        </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-scroll">
+            <a class="nav-item active" data-page="Dashboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                </svg>
+                Home
+            </a>
+            <a class="nav-item" data-page="Study">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                Study
+            </a>
+            <a class="nav-item" data-page="Quests">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                </svg>
+                Quests
+            </a>
+            <a class="nav-item" data-page="Skills">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+                Skills
+            </a>
+            <a class="nav-item" data-page="Habits">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,11 12,14 22,4"></polyline>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                Habits
+            </a>
+            <a class="nav-item" data-page="Mocks">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                    <polyline points="14,2 14,8 20,8"></polyline>
+                </svg>
+                Mocks
+            </a>
+            <a class="nav-item" data-page="Rewards">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"></polyline>
+                </svg>
+                Rewards
+            </a>
+            <a class="nav-item" data-page="Awakening">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                Awaken
+            </a>
+            <a class="nav-item" data-page="Report">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14,2 14,8 20,8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10,9 9,9 8,9"></polyline>
+                </svg>
+                Report
+            </a>
+        </div>
+    </nav>
+
+    <!-- Modal for Editing Vision -->
+    <div class="modal-overlay" id="modalVision">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalVisionTitle">Edit Vision</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Describe your vision in detail</label>
+                    <textarea class="form-textarea" id="modalVisionText" style="min-height: 200px;" placeholder="What does success look like? Be specific about selection, stability, respect, and the life you want to build."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="flex: 1;" id="btnCancelVision">Cancel</button>
+                <button class="btn btn-primary" style="flex: 1;" id="btnSaveVision">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jsPDF Library for PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        // ============================================
+        // SOLO LEVELING SYSTEM - MAIN APPLICATION
+        // ============================================
+
+        // ============ DATA STRUCTURES ============
+        const DEFAULT_DATA = {
+            // User Stats
+            level: 1,
+            xp: 0,
+            gold: 0,
+            rank: 'E',
+            streak: 0,
+            consecutiveFailures: 0,
+            
+            // Weekly XP
+            weeklyXP: 0,
+            weeklyRollover: 0,
+            weekStartDate: null,
+            
+            // Tracking
+            startDate: null,
+            lastActiveDate: null,
+            lastStudyDate: null,
+            lastMockDate: null,
+            totalStudyMinutes: 0,
+            
+            // Session Data
+            activeSession: null,
+            studyHistory: [],
+            mockHistory: [],
+            
+            // Skills XP
+            skills: {
+                'Quantitative Aptitude': { xp: 0, level: 1 },
+                'English Language': { xp: 0, level: 1 },
+                'General Intelligence': { xp: 0, level: 1 },
+                'General Awareness': { xp: 0, level: 1 }
+            },
+            
+            // Habits
+            habits: {
+                dailyStudy: { streak: 0, lastCompleted: null, bestStreak: 0 },
+                dailyRevision: { streak: 0, lastCompleted: null, bestStreak: 0 },
+                weeklyMock: { streak: 0, lastCompleted: null, bestStreak: 0 },
+                formulaReview: { streak: 0, lastCompleted: null, bestStreak: 0 }
+            },
+            
+            // Quests
+            quests: {
+                daily: [],
+                weekly: [],
+                special: []
+            },
+            questsLastReset: null,
+            
+            // Rewards
+            claimedRewards: [],
+            
+            // Vision
+            vision: 'I will clear SSC CGL and secure a stable government job. This means financial security for my family, respect in society, and the freedom to live life on my own terms. Every hour of study brings me closer to this reality.',
+            antiVision: 'If I fail, I face another year of uncertainty. Another year of watching others succeed while I make excuses. The regret of wasted potential, the disappointment in my parents\' eyes, the crushing weight of repeated failure. This is what I am running from.'
+        };
+
+        // XP Rates by Phase
+        const XP_RATES = {
+            learning: 20,
+            revision: 15,
+            mock_analysis: 25,
+            mock_attempt: 30
+        };
+
+        // Rank Thresholds
+        const RANKS = {
+            E: { name: 'E - Beginner', minLevel: 1 },
+            D: { name: 'D - Serious', minLevel: 3 },
+            C: { name: 'C - Consistent', minLevel: 5 },
+            B: { name: 'B - Exam-Ready', minLevel: 8 },
+            A: { name: 'A - Elite', minLevel: 11 },
+            S: { name: 'S - Selection Zone', minLevel: 15 }
+        };
+
+        // XP Decay by Level
+        const XP_DECAY = {
+            4: 0, 5: 10, 6: 10, 7: 20, 8: 20, 9: 35, 10: 35, 11: 50
+        };
+
+        // Failure Penalties
+        const FAILURE_PENALTIES = {
+            1: 25,
+            2: 50,
+            3: 'downgrade'
+        };
+
+        // Available Rewards
+        const AVAILABLE_REWARDS = [
+            { id: 'break_15', name: '15 Minute Break', cost: 10, description: 'Guilt-free break' },
+            { id: 'break_30', name: '30 Minute Break', cost: 20, description: 'Extended break time' },
+            { id: 'snack', name: 'Snack Reward', cost: 15, description: 'Treat yourself' },
+            { id: 'youtube_30', name: '30 Min Entertainment', cost: 25, description: 'Watch something fun' },
+            { id: 'game_30', name: '30 Min Gaming', cost: 30, description: 'Play your favorite game' },
+            { id: 'day_off', name: 'Half Day Off', cost: 75, description: 'Partial rest day' },
+            { id: 'full_day', name: 'Full Day Off', cost: 150, description: 'Complete rest day' },
+            { id: 'special', name: 'Special Reward', cost: 200, description: 'Custom reward of choice' }
+        ];
+
+        // ============ STATE MANAGEMENT ============
+        let appData = {};
+        let timerInterval = null;
+        let sessionStartTime = null;
+
+        // Load data from localStorage
+        function loadData() {
+            const saved = localStorage.getItem('soloLevelingData');
+            if (saved) {
+                appData = { ...DEFAULT_DATA, ...JSON.parse(saved) };
+            } else {
+                appData = { ...DEFAULT_DATA };
+                appData.startDate = new Date().toISOString();
+                appData.weekStartDate = new Date().toISOString();
+            }
+            
+            // Initialize quests if needed
+            checkAndResetQuests();
+            
+            // Check for daily penalties
+            checkDailyPenalties();
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('soloLevelingData', JSON.stringify(appData));
+        }
+
+        // ============ XP & LEVELING SYSTEM ============
+        function calculateXPForLevel(level) {
+            if (level <= 1) return 0;
+            return 100 * Math.pow(2, level - 2);
+        }
+
+        function getTotalXPForLevel(level) {
+            let total = 0;
+            for (let i = 2; i <= level; i++) {
+                total += calculateXPForLevel(i);
+            }
+            return total;
+        }
+
+        function getLevelFromTotalXP(totalXP) {
+            let level = 1;
+            let xpNeeded = 0;
+            while (totalXP >= xpNeeded + calculateXPForLevel(level + 1)) {
+                xpNeeded += calculateXPForLevel(level + 1);
+                level++;
+            }
+            return level;
+        }
+
+        function getXPProgressInLevel(totalXP, level) {
+            const xpForPreviousLevels = getTotalXPForLevel(level);
+            return totalXP - xpForPreviousLevels;
+        }
+
+        function addXP(amount, isVerified = true) {
+            if (amount <= 0) return;
+            
+            // Apply weekly cap
+            const weeklyRemaining = 300 - appData.weeklyXP;
+            let actualXP = Math.min(amount, weeklyRemaining + appData.weeklyRollover);
+            
+            if (actualXP < amount) {
+                // Calculate rollover
+                const excess = amount - actualXP;
+                appData.weeklyRollover = Math.min(appData.weeklyRollover + Math.min(excess, 100 - appData.weeklyRollover), 100);
+            }
+            
+            appData.xp += actualXP;
+            appData.weeklyXP += Math.min(actualXP, weeklyRemaining);
+            
+            // Add gold (1 gold per 5 XP)
+            appData.gold += Math.floor(actualXP / 5);
+            
+            // Update level
+            const newLevel = getLevelFromTotalXP(appData.xp);
+            if (newLevel > appData.level) {
+                appData.level = newLevel;
+                showToast(`Level Up! You are now Level ${newLevel}`, 'success');
+            }
+            
+            // Update rank
+            updateRank();
+            
+            saveData();
+            return actualXP;
+        }
+
+        function removeXP(amount) {
+            appData.xp = Math.max(0, appData.xp - amount);
+            appData.level = getLevelFromTotalXP(appData.xp);
+            updateRank();
+            saveData();
+        }
+
+        function updateRank() {
+            let newRank = 'E';
+            for (const [rank, data] of Object.entries(RANKS).reverse()) {
+                if (appData.level >= data.minLevel) {
+                    newRank = rank;
+                    break;
+                }
+            }
+            
+            if (newRank !== appData.rank) {
+                const wasDowngrade = Object.keys(RANKS).indexOf(newRank) < Object.keys(RANKS).indexOf(appData.rank);
+                appData.rank = newRank;
+                
+                if (wasDowngrade) {
+                    showToast(`Rank Downgrade: You are now ${RANKS[newRank].name}`, 'error');
+                } else {
+                    showToast(`Rank Up! You achieved ${RANKS[newRank].name}`, 'success');
+                }
+            }
+        }
+
+        // ============ DAILY CHECKS ============
+        function checkDailyPenalties() {
+            const today = new Date().toDateString();
+            const lastActive = appData.lastActiveDate ? new Date(appData.lastActiveDate).toDateString() : null;
+            
+            if (lastActive && lastActive !== today) {
+                const lastActiveDate = new Date(appData.lastActiveDate);
+                const daysDiff = Math.floor((new Date() - lastActiveDate) / (1000 * 60 * 60 * 24));
+                
+                // Apply XP decay for each missed day
+                for (let i = 0; i < daysDiff; i++) {
+                    applyXPDecay();
+                    
+                    // Check if study was done
+                    const lastStudy = appData.lastStudyDate ? new Date(appData.lastStudyDate).toDateString() : null;
+                    if (lastStudy !== lastActive) {
+                        appData.consecutiveFailures++;
+                        applyFailurePenalty();
+                    }
+                }
+            }
+            
+            appData.lastActiveDate = new Date().toISOString();
+            saveData();
+        }
+
+        function applyXPDecay() {
+            let decay = 0;
+            if (appData.level >= 11) decay = 50;
+            else if (appData.level >= 9) decay = 35;
+            else if (appData.level >= 7) decay = 20;
+            else if (appData.level >= 5) decay = 10;
+            
+            if (decay > 0) {
+                removeXP(decay);
+                showToast(`XP Decay: -${decay} XP for inactivity`, 'warning');
+            }
+        }
+
+        function applyFailurePenalty() {
+            if (appData.consecutiveFailures >= 3) {
+                // Level and rank downgrade
+                if (appData.level > 1) {
+                    appData.level--;
+                    appData.xp = getTotalXPForLevel(appData.level);
+                    updateRank();
+                    showToast('Major Penalty: Level downgrade due to consecutive failures', 'error');
+                }
+                appData.streak = 0;
+            } else {
+                const penalty = appData.consecutiveFailures === 1 ? 25 : 50;
+                removeXP(penalty);
+                showToast(`Failure Penalty: -${penalty} XP`, 'error');
+            }
+        }
+
+        function checkAndResetQuests() {
+            const today = new Date().toDateString();
+            const lastReset = appData.questsLastReset ? new Date(appData.questsLastReset).toDateString() : null;
+            
+            if (lastReset !== today) {
+                generateDailyQuests();
+                
+                // Check weekly reset
+                const weekStart = new Date(appData.weekStartDate);
+                const daysSinceWeekStart = Math.floor((new Date() - weekStart) / (1000 * 60 * 60 * 24));
+                if (daysSinceWeekStart >= 7) {
+                    appData.weekStartDate = new Date().toISOString();
+                    appData.weeklyXP = 0;
+                    appData.weeklyRollover = Math.min(appData.weeklyRollover, 100);
+                    generateWeeklyQuests();
+                }
+                
+                appData.questsLastReset = new Date().toISOString();
+                saveData();
+            }
+        }
+
+        function generateDailyQuests() {
+            appData.quests.daily = [
+                { id: 'daily_1', title: 'Complete 1 Study Session', target: 1, progress: 0, xp: 20, completed: false },
+                { id: 'daily_2', title: 'Study for 60 minutes', target: 60, progress: 0, xp: 30, completed: false },
+                { id: 'daily_3', title: 'Complete all daily habits', target: 4, progress: 0, xp: 25, completed: false }
+            ];
+        }
+
+        function generateWeeklyQuests() {
+            appData.quests.weekly = [
+                { id: 'weekly_1', title: 'Complete 5 Study Sessions', target: 5, progress: 0, xp: 50, completed: false },
+                { id: 'weekly_2', title: 'Study for 7 hours total', target: 420, progress: 0, xp: 75, completed: false },
+                { id: 'weekly_3', title: 'Complete 1 Full Mock', target: 1, progress: 0, xp: 60, completed: false }
+            ];
+        }
+
+        // ============ STUDY SESSION SYSTEM ============
+        function startStudySession() {
+            const subject = document.getElementById('studySubject').value;
+            const topic = document.getElementById('studyTopic').value.trim();
+            const phase = document.getElementById('studyPhase').value;
+            const duration = parseInt(document.getElementById('studyDuration').value);
+            
+            if (!subject || !topic || !duration) {
+                showToast('Please fill all fields', 'error');
+                return;
+            }
+            
+            if (duration < 20) {
+                showToast('Minimum session duration is 20 minutes', 'error');
+                return;
+            }
+            
+            appData.activeSession = {
+                subject,
+                topic,
+                phase,
+                expectedDuration: duration,
+                startTime: new Date().toISOString(),
+                evidence: '',
+                isPaused: false,
+                pausedTime: 0
+            };
+            
+            sessionStartTime = new Date();
+            saveData();
+            
+            showStudyStage(2);
+            startTimer();
+            updateStudyUI();
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            timerInterval = setInterval(() => {
+                if (appData.activeSession && !appData.activeSession.isPaused) {
+                    updateTimerDisplay();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            if (!appData.activeSession) return;
+            
+            const start = new Date(appData.activeSession.startTime);
+            const now = new Date();
+            const pausedMs = appData.activeSession.pausedTime || 0;
+            const elapsed = Math.floor((now - start - pausedMs) / 1000);
+            
+            const hours = Math.floor(elapsed / 3600);
+            const minutes = Math.floor((elapsed % 3600) / 60);
+            const seconds = elapsed % 60;
+            
+            document.getElementById('studyTimer').textContent = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function pauseStudy() {
+            if (appData.activeSession) {
+                appData.activeSession.isPaused = !appData.activeSession.isPaused;
+                
+                if (appData.activeSession.isPaused) {
+                    appData.activeSession.pauseStart = new Date().toISOString();
+                    document.getElementById('btnPauseStudy').textContent = 'Resume';
+                } else {
+                    const pauseStart = new Date(appData.activeSession.pauseStart);
+                    appData.activeSession.pausedTime = (appData.activeSession.pausedTime || 0) + 
+                        (new Date() - pauseStart);
+                    document.getElementById('btnPauseStudy').textContent = 'Pause';
+                }
+                
+                saveData();
+            }
+        }
+
+        function endStudySession() {
+            if (!appData.activeSession) return;
+            
+            const evidence = document.getElementById('studyEvidence').value.trim();
+            
+            if (evidence.length < 200) {
+                showToast(`Evidence too short. Need ${200 - evidence.length} more characters.`, 'error');
+                return;
+            }
+            
+            // Calculate actual duration
+            const start = new Date(appData.activeSession.startTime);
+            const pausedMs = appData.activeSession.pausedTime || 0;
+            const actualMinutes = Math.floor((new Date() - start - pausedMs) / 60000);
+            
+            if (actualMinutes < 20) {
+                showToast('Session too short. Minimum 20 minutes required.', 'error');
+                return;
+            }
+            
+            appData.activeSession.evidence = evidence;
+            appData.activeSession.actualDuration = actualMinutes;
+            appData.activeSession.endTime = new Date().toISOString();
+            
+            // Calculate potential XP
+            const xpRate = XP_RATES[appData.activeSession.phase];
+            const potentialXP = Math.floor((actualMinutes / 60) * xpRate);
+            
+            document.getElementById('confirmTopic').textContent = appData.activeSession.topic;
+            document.getElementById('confirmDuration').textContent = `${actualMinutes} minutes`;
+            document.getElementById('confirmXP').textContent = `+${potentialXP} XP`;
+            
+            clearInterval(timerInterval);
+            showStudyStage(3);
+            saveData();
+        }
+
+        function confirmStudySession() {
+            const hardest = document.getElementById('studyHardest').value.trim();
+            const mistake = document.getElementById('studyMistake').value.trim();
+            const revisionNote = document.getElementById('studyRevisionNote').value.trim();
+            
+            if (!hardest || !mistake || !revisionNote) {
+                showToast('Please complete all reflection fields', 'error');
+                return;
+            }
+            
+            if (hardest.length < 20 || mistake.length < 20 || revisionNote.length < 20) {
+                showToast('Each reflection needs at least 20 characters', 'error');
+                return;
+            }
+            
+            // Complete the session
+            const session = {
+                ...appData.activeSession,
+                hardest,
+                mistake,
+                revisionNote,
+                confirmedAt: new Date().toISOString()
+            };
+            
+            // Calculate and award XP
+            const xpRate = XP_RATES[session.phase];
+            const earnedXP = Math.floor((session.actualDuration / 60) * xpRate);
+            const actualEarned = addXP(earnedXP);
+            
+            session.xpEarned = actualEarned;
+            
+            // Update skill XP
+            if (appData.skills[session.subject]) {
+                appData.skills[session.subject].xp += actualEarned;
+                const skillLevel = Math.floor(appData.skills[session.subject].xp / 100) + 1;
+                appData.skills[session.subject].level = skillLevel;
+            }
+            
+            // Update tracking
+            appData.studyHistory.unshift(session);
+            appData.totalStudyMinutes += session.actualDuration;
+            appData.lastStudyDate = new Date().toISOString();
+            appData.consecutiveFailures = 0;
+            appData.streak++;
+            
+            // Update quests
+            updateQuestProgress('study_session', 1);
+            updateQuestProgress('study_time', session.actualDuration);
+            
+            // Update habits
+            markHabitComplete('dailyStudy');
+            if (session.phase === 'revision') {
+                markHabitComplete('dailyRevision');
+            }
+            
+            // Clear active session
+            appData.activeSession = null;
+            
+            saveData();
+            showToast(`Session complete! +${actualEarned} XP earned`, 'success');
+            
+            // Reset UI
+            resetStudyUI();
+            showStudyStage(1);
+            updateDashboard();
+        }
+
+        function showStudyStage(stage) {
+            document.getElementById('studyStage1').style.display = stage === 1 ? 'block' : 'none';
+            document.getElementById('studyStage2').style.display = stage === 2 ? 'block' : 'none';
+            document.getElementById('studyStage3').style.display = stage === 3 ? 'block' : 'none';
+            
+            // Update stage indicators
+            document.querySelectorAll('.stage').forEach((el, idx) => {
+                el.classList.remove('active', 'completed');
+                if (idx + 1 < stage) el.classList.add('completed');
+                if (idx + 1 === stage) el.classList.add('active');
+            });
+        }
+
+        function updateStudyUI() {
+            if (appData.activeSession) {
+                document.getElementById('studyCurrentTopic').textContent = appData.activeSession.topic;
+                document.getElementById('studyCurrentPhase').textContent = 
+                    appData.activeSession.phase.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+            }
+        }
+
+        function resetStudyUI() {
+            document.getElementById('studySubject').value = '';
+            document.getElementById('studyTopic').value = '';
+            document.getElementById('studyDuration').value = '';
+            document.getElementById('studyEvidence').value = '';
+            document.getElementById('studyHardest').value = '';
+            document.getElementById('studyMistake').value = '';
+            document.getElementById('studyRevisionNote').value = '';
+            document.getElementById('evidenceCharCount').textContent = '0';
+        }
+
+        // ============ QUEST SYSTEM ============
+        function updateQuestProgress(type, amount) {
+            const questMappings = {
+                'study_session': ['daily_1', 'weekly_1'],
+                'study_time': ['daily_2', 'weekly_2'],
+                'mock': ['weekly_3']
+            };
+            
+            const questIds = questMappings[type] || [];
+            
+            ['daily', 'weekly', 'special'].forEach(category => {
+                appData.quests[category].forEach(quest => {
+                    if (questIds.includes(quest.id) && !quest.completed) {
+                        quest.progress += amount;
+                        if (quest.progress >= quest.target) {
+                            quest.completed = true;
+                            addXP(quest.xp);
+                            showToast(`Quest completed: ${quest.title}`, 'success');
+                        }
+                    }
+                });
+            });
+            
+            saveData();
+        }
+
+        function renderQuests(tab = 'daily') {
+            const container = document.getElementById('questsList');
+            const quests = appData.quests[tab] || [];
+            
+            if (quests.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>No quests available</p></div>';
+                return;
+            }
+            
+            container.innerHTML = quests.map(quest => `
+                <div class="quest-card ${quest.completed ? 'completed' : 'active'}">
+                    <div class="quest-header">
+                        <span class="quest-title">${quest.title}</span>
+                        <span class="quest-xp">+${quest.xp} XP</span>
+                    </div>
+                    <div class="quest-progress">
+                        ${quest.completed ? 'Completed' : `${Math.min(quest.progress, quest.target)} / ${quest.target}`}
+                    </div>
+                    <div class="progress-bar" style="margin-top: 8px;">
+                        <div class="progress-fill" style="width: ${Math.min((quest.progress / quest.target) * 100, 100)}%; background: ${quest.completed ? 'var(--accent-success)' : 'var(--accent-primary)'};"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============ SKILLS SYSTEM ============
+        function renderSkills() {
+            const container = document.getElementById('skillsList');
+            
+            container.innerHTML = Object.entries(appData.skills).map(([name, data]) => {
+                const xpInLevel = data.xp % 100;
+                const progress = (xpInLevel / 100) * 100;
+                
+                return `
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <span class="skill-name">${name}</span>
+                            <span class="skill-level">Lvl ${data.level}</span>
+                        </div>
+                        <div class="skill-xp-bar">
+                            <div class="skill-xp-fill" style="width: ${progress}%"></div>
+                        </div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
+                            ${data.xp} XP total | ${xpInLevel}/100 to next level
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ============ HABITS SYSTEM ============
+        function markHabitComplete(habitId) {
+            const today = new Date().toDateString();
+            const habit = appData.habits[habitId];
+            
+            if (habit.lastCompleted !== today) {
+                const yesterday = new Date(Date.now() - 86400000).toDateString();
+                
+                if (habit.lastCompleted === yesterday) {
+                    habit.streak++;
+                } else {
+                    habit.streak = 1;
+                }
+                
+                habit.lastCompleted = today;
+                habit.bestStreak = Math.max(habit.bestStreak, habit.streak);
+                
+                // Check daily habits quest
+                const completedHabits = Object.values(appData.habits).filter(h => h.lastCompleted === today).length;
+                updateQuestProgress('daily_habits', completedHabits);
+                
+                saveData();
+            }
+        }
+
+        function renderHabits() {
+            const today = new Date().toDateString();
+            
+            const dailyHabits = [
+                { id: 'dailyStudy', name: 'Daily Study Session', streak: appData.habits.dailyStudy.streak },
+                { id: 'dailyRevision', name: 'Daily Revision', streak: appData.habits.dailyRevision.streak },
+                { id: 'formulaReview', name: 'Formula Review', streak: appData.habits.formulaReview.streak }
+            ];
+            
+            document.getElementById('dailyHabits').innerHTML = dailyHabits.map(h => {
+                const isCompleted = appData.habits[h.id].lastCompleted === today;
+                return `
+                    <div class="habit-item">
+                        <div class="habit-checkbox ${isCompleted ? 'checked' : ''}" onclick="toggleHabit('${h.id}')">
+                            ${isCompleted ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20,6 9,17 4,12"></polyline></svg>' : ''}
+                        </div>
+                        <div class="habit-info">
+                            <div class="habit-name">${h.name}</div>
+                            <div class="habit-streak">Streak: ${h.streak} days</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            const weeklyHabits = [
+                { id: 'weeklyMock', name: 'Weekly Mock Test', streak: appData.habits.weeklyMock.streak }
+            ];
+            
+            document.getElementById('weeklyHabits').innerHTML = weeklyHabits.map(h => {
+                const lastCompleted = appData.habits[h.id].lastCompleted;
+                const isCompleted = lastCompleted && (new Date() - new Date(lastCompleted)) < 7 * 24 * 60 * 60 * 1000;
+                return `
+                    <div class="habit-item">
+                        <div class="habit-checkbox ${isCompleted ? 'checked' : ''}" onclick="toggleHabit('${h.id}')">
+                            ${isCompleted ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20,6 9,17 4,12"></polyline></svg>' : ''}
+                        </div>
+                        <div class="habit-info">
+                            <div class="habit-name">${h.name}</div>
+                            <div class="habit-streak">Streak: ${h.streak} weeks</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Calculate completion rate
+            const allHabits = Object.values(appData.habits);
+            const completedToday = allHabits.filter(h => h.lastCompleted === today).length;
+            const completionRate = Math.round((completedToday / allHabits.length) * 100);
+            document.getElementById('habitCompletion').textContent = `${completionRate}%`;
+            
+            const bestStreak = Math.max(...allHabits.map(h => h.bestStreak));
+            document.getElementById('habitBestStreak').textContent = bestStreak;
+        }
+
+        function toggleHabit(habitId) {
+            const today = new Date().toDateString();
+            if (appData.habits[habitId].lastCompleted !== today) {
+                markHabitComplete(habitId);
+                renderHabits();
+                showToast('Habit completed!', 'success');
+            }
+        }
+
+        // ============ MOCKS SYSTEM ============
+        function recordMock() {
+            const type = document.getElementById('mockType').value;
+            const name = document.getElementById('mockName').value.trim();
+            const score = parseInt(document.getElementById('mockScore').value);
+            const time = parseInt(document.getElementById('mockTime').value);
+            
+            if (!name || isNaN(score) || isNaN(time)) {
+                showToast('Please fill all fields', 'error');
+                return;
+            }
+            
+            const mock = {
+                id: Date.now(),
+                type,
+                name,
+                score,
+                time,
+                date: new Date().toISOString()
+            };
+            
+            appData.mockHistory.unshift(mock);
+            appData.lastMockDate = new Date().toISOString();
+            
+            // Award XP
+            const xpEarned = type === 'full' ? 30 : 15;
+            addXP(xpEarned);
+            
+            // Update quests
+            if (type === 'full') {
+                updateQuestProgress('mock', 1);
+            }
+            
+            // Update habit
+            markHabitComplete('weeklyMock');
+            
+            saveData();
+            showToast(`Mock recorded! +${xpEarned} XP`, 'success');
+            
+            // Clear form
+            document.getElementById('mockName').value = '';
+            document.getElementById('mockScore').value = '';
+            document.getElementById('mockTime').value = '';
+            
+            renderMocks();
+        }
+
+        function renderMocks() {
+            // Calculate days since last mock
+            const daysSince = appData.lastMockDate 
+                ? Math.floor((new Date() - new Date(appData.lastMockDate)) / (1000 * 60 * 60 * 24))
+                : 'N/A';
+            
+            document.getElementById('mockDaysSince').textContent = `${daysSince} days`;
+            
+            const isProtected = daysSince !== 'N/A' && daysSince < 7;
+            document.getElementById('mockProtection').textContent = isProtected ? 'Protected' : 'Expired';
+            document.getElementById('mockProtection').className = isProtected ? 'text-success' : 'text-danger';
+            
+            // Render history
+            const container = document.getElementById('mockHistory');
+            
+            if (appData.mockHistory.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>No mock attempts recorded yet</p></div>';
+                return;
+            }
+            
+            container.innerHTML = appData.mockHistory.slice(0, 10).map(mock => `
+                <div class="history-item">
+                    <div class="history-header">
+                        <span class="history-topic">${mock.name}</span>
+                        <span>${mock.score}%</span>
+                    </div>
+                    <div class="history-meta">
+                        ${mock.type === 'full' ? 'Full Mock' : 'Sectional'} | ${mock.time} min | ${new Date(mock.date).toLocaleDateString()}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============ REWARDS SYSTEM ============
+        function claimReward(rewardId) {
+            const reward = AVAILABLE_REWARDS.find(r => r.id === rewardId);
+            
+            if (!reward) return;
+            
+            if (appData.gold < reward.cost) {
+                showToast('Not enough Gold', 'error');
+                return;
+            }
+            
+            appData.gold -= reward.cost;
+            appData.claimedRewards.push({
+                ...reward,
+                claimedAt: new Date().toISOString()
+            });
+            
+            saveData();
+            showToast(`Reward claimed: ${reward.name}`, 'success');
+            renderRewards();
+            updateDashboard();
+        }
+
+        function renderRewards() {
+            document.getElementById('rewardsGold').textContent = appData.gold;
+            
+            document.getElementById('rewardsList').innerHTML = AVAILABLE_REWARDS.map(reward => `
+                <div class="reward-card">
+                    <div class="reward-icon">&#9733;</div>
+                    <div class="reward-info">
+                        <div class="reward-name">${reward.name}</div>
+                        <div class="reward-cost">${reward.cost} Gold</div>
+                    </div>
+                    <button class="btn btn-secondary" onclick="claimReward('${reward.id}')" ${appData.gold < reward.cost ? 'disabled' : ''}>
+                        Claim
+                    </button>
+                </div>
+            `).join('');
+            
+            // Claimed rewards
+            if (appData.claimedRewards.length > 0) {
+                document.getElementById('claimedRewards').innerHTML = appData.claimedRewards.slice(-10).reverse().map(r => `
+                    <div class="reward-card">
+                        <div class="reward-icon">&#10003;</div>
+                        <div class="reward-info">
+                            <div class="reward-name">${r.name}</div>
+                            <div class="reward-claimed">Claimed ${new Date(r.claimedAt).toLocaleDateString()}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // ============ AWAKENING SYSTEM ============
+        function renderAwakening() {
+            document.getElementById('visionText').textContent = appData.vision;
+            document.getElementById('antiVisionText').textContent = appData.antiVision;
+        }
+
+        let editingVisionType = 'vision';
+
+        function openVisionModal(type) {
+            editingVisionType = type;
+            document.getElementById('modalVisionTitle').textContent = type === 'vision' ? 'Edit Vision' : 'Edit Anti-Vision';
+            document.getElementById('modalVisionText').value = type === 'vision' ? appData.vision : appData.antiVision;
+            document.getElementById('modalVision').classList.add('active');
+        }
+
+        function closeVisionModal() {
+            document.getElementById('modalVision').classList.remove('active');
+        }
+
+        function saveVision() {
+            const text = document.getElementById('modalVisionText').value.trim();
+            
+            if (text.length < 50) {
+                showToast('Please write at least 50 characters', 'error');
+                return;
+            }
+            
+            if (editingVisionType === 'vision') {
+                appData.vision = text;
+            } else {
+                appData.antiVision = text;
+            }
+            
+            saveData();
+            renderAwakening();
+            closeVisionModal();
+            showToast('Saved successfully', 'success');
+        }
+
+        // ============ REPORT SYSTEM ============
+        function renderReport() {
+            // Calculate stats
+            const startDate = new Date(appData.startDate);
+            const daysActive = Math.floor((new Date() - startDate) / (1000 * 60 * 60 * 24)) + 1;
+            const totalHours = Math.floor(appData.totalStudyMinutes / 60);
+            
+            document.getElementById('reportDays').textContent = daysActive;
+            document.getElementById('reportHours').textContent = totalHours;
+            document.getElementById('reportSessions').textContent = appData.studyHistory.length;
+            document.getElementById('reportFailures').textContent = appData.consecutiveFailures;
+            
+            // Render history
+            const container = document.getElementById('studyHistory');
+            
+            if (appData.studyHistory.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>No study sessions recorded yet</p></div>';
+                return;
+            }
+            
+            container.innerHTML = appData.studyHistory.slice(0, 20).map(session => `
+                <div class="history-item">
+                    <div class="history-header">
+                        <span class="history-topic">${session.topic}</span>
+                        <span class="history-xp">+${session.xpEarned} XP</span>
+                    </div>
+                    <div class="history-meta">
+                        ${session.subject} | ${session.phase.replace('_', ' ')} | ${session.actualDuration} min | ${new Date(session.startTime).toLocaleDateString()}
+                    </div>
+                    <div class="history-details">
+                        <strong>Evidence:</strong> ${session.evidence.substring(0, 150)}...<br>
+                        <strong>Hardest:</strong> ${session.hardest}<br>
+                        <strong>Revision Note:</strong> ${session.revisionNote}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function exportPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            let y = 20;
+            const lineHeight = 7;
+            const pageWidth = 210;
+            const margin = 20;
+            const contentWidth = pageWidth - 2 * margin;
+            
+            // Helper function to add text with word wrap
+            function addText(text, fontSize = 10, isBold = false) {
+                doc.setFontSize(fontSize);
+                doc.setFont('helvetica', isBold ? 'bold' : 'normal');
+                const lines = doc.splitTextToSize(text, contentWidth);
+                
+                lines.forEach(line => {
+                    if (y > 270) {
+                        doc.addPage();
+                        y = 20;
+                    }
+                    doc.text(line, margin, y);
+                    y += lineHeight;
+                });
+            }
+            
+            // Title
+            doc.setFontSize(20);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Solo Leveling System - Study Report', margin, y);
+            y += 15;
+            
+            // Date range
+            addText(`Generated: ${new Date().toLocaleString()}`);
+            addText(`Tracking Started: ${new Date(appData.startDate).toLocaleDateString()}`);
+            y += 5;
+            
+            // Current Stats
+            addText('CURRENT STATISTICS', 14, true);
+            y += 3;
+            addText(`Level: ${appData.level}`);
+            addText(`Rank: ${RANKS[appData.rank].name}`);
+            addText(`Total XP: ${appData.xp}`);
+            addText(`Gold: ${appData.gold}`);
+            addText(`Current Streak: ${appData.streak} days`);
+            addText(`Total Study Time: ${Math.floor(appData.totalStudyMinutes / 60)} hours ${appData.totalStudyMinutes % 60} minutes`);
+            addText(`Total Sessions: ${appData.studyHistory.length}`);
+            y += 10;
+            
+            // Skill Levels
+            addText('SKILL LEVELS', 14, true);
+            y += 3;
+            Object.entries(appData.skills).forEach(([name, data]) => {
+                addText(`${name}: Level ${data.level} (${data.xp} XP)`);
+            });
+            y += 10;
+            
+            // Study History
+            addText('COMPLETE STUDY HISTORY', 14, true);
+            y += 5;
+            
+            if (appData.studyHistory.length === 0) {
+                addText('No study sessions recorded.');
+            } else {
+                appData.studyHistory.forEach((session, index) => {
+                    if (y > 250) {
+                        doc.addPage();
+                        y = 20;
+                    }
+                    
+                    addText(`Session ${index + 1}: ${session.topic}`, 11, true);
+                    addText(`Date: ${new Date(session.startTime).toLocaleString()}`);
+                    addText(`Subject: ${session.subject} | Phase: ${session.phase}`);
+                    addText(`Duration: ${session.actualDuration} min (Expected: ${session.expectedDuration} min)`);
+                    addText(`XP Earned: ${session.xpEarned}`);
+                    addText(`Evidence: ${session.evidence.substring(0, 300)}${session.evidence.length > 300 ? '...' : ''}`);
+                    addText(`Hardest Part: ${session.hardest}`);
+                    addText(`Potential Mistake: ${session.mistake}`);
+                    addText(`Revision Note: ${session.revisionNote}`);
+                    y += 8;
+                });
+            }
+            
+            // Mock History
+            if (appData.mockHistory.length > 0) {
+                if (y > 250) {
+                    doc.addPage();
+                    y = 20;
+                }
+                
+                y += 5;
+                addText('MOCK TEST HISTORY', 14, true);
+                y += 3;
+                
+                appData.mockHistory.forEach(mock => {
+                    addText(`${mock.name} - ${mock.score}% - ${mock.type} - ${new Date(mock.date).toLocaleDateString()}`);
+                });
+            }
+            
+            // Vision
+            if (y > 230) {
+                doc.addPage();
+                y = 20;
+            }
+            
+            y += 10;
+            addText('VISION', 14, true);
+            y += 3;
+            addText(appData.vision);
+            
+            y += 10;
+            addText('ANTI-VISION', 14, true);
+            y += 3;
+            addText(appData.antiVision);
+            
+            // Save
+            doc.save(`solo-leveling-report-${new Date().toISOString().split('T')[0]}.pdf`);
+            showToast('Report exported successfully', 'success');
+        }
+
+        // ============ DASHBOARD ============
+        function updateDashboard() {
+            const level = appData.level;
+            const xpInLevel = getXPProgressInLevel(appData.xp, level);
+            const xpNeeded = calculateXPForLevel(level + 1);
+            const progress = (xpInLevel / xpNeeded) * 100;
+            
+            document.getElementById('dashLevel').textContent = level;
+            document.getElementById('dashXP').textContent = appData.xp;
+            document.getElementById('dashGold').textContent = appData.gold;
+            document.getElementById('dashStreak').textContent = appData.streak;
+            
+            document.getElementById('dashRankName').textContent = RANKS[appData.rank].name;
+            document.getElementById('dashRankBadge').textContent = appData.rank;
+            document.getElementById('dashRankBadge').className = `rank-badge rank-${appData.rank}`;
+            
+            document.getElementById('dashCurrentLvl').textContent = level;
+            document.getElementById('dashXPCurrent').textContent = xpInLevel;
+            document.getElementById('dashXPNeeded').textContent = xpNeeded;
+            document.getElementById('dashXPBar').style.width = `${progress}%`;
+            
+            document.getElementById('dashWeeklyXP').textContent = appData.weeklyXP;
+            document.getElementById('dashRollover').textContent = appData.weeklyRollover;
+            document.getElementById('dashWeeklyBar').style.width = `${(appData.weeklyXP / 300) * 100}%`;
+            
+            // Today's summary
+            const today = new Date().toDateString();
+            const todaySessions = appData.studyHistory.filter(s => 
+                new Date(s.startTime).toDateString() === today
+            );
+            
+            document.getElementById('dashTodaySessions').textContent = todaySessions.length;
+            document.getElementById('dashTodayTime').textContent = 
+                `${todaySessions.reduce((sum, s) => sum + s.actualDuration, 0)} min`;
+            document.getElementById('dashTodayXP').textContent = 
+                `+${todaySessions.reduce((sum, s) => sum + s.xpEarned, 0)} XP`;
+            
+            // Alerts
+            const alerts = [];
+            
+            if (appData.consecutiveFailures > 0) {
+                alerts.push(`<div class="text-danger">Warning: ${appData.consecutiveFailures} consecutive failure(s)</div>`);
+            }
+            
+            const daysSinceMock = appData.lastMockDate 
+                ? Math.floor((new Date() - new Date(appData.lastMockDate)) / (1000 * 60 * 60 * 24))
+                : null;
+            
+            if (daysSinceMock === null || daysSinceMock >= 5) {
+                alerts.push(`<div class="text-warning">Mock protection expires soon. Take a mock test.</div>`);
+            }
+            
+            if (appData.weeklyXP >= 280) {
+                alerts.push(`<div class="text-warning">Approaching weekly XP cap (${appData.weeklyXP}/300)</div>`);
+            }
+            
+            document.getElementById('dashAlerts').innerHTML = 
+                alerts.length > 0 ? alerts.join('') : '<div class="text-muted">No alerts</div>';
+        }
+
+        // ============ NAVIGATION ============
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            document.getElementById(`page${pageName}`).classList.add('active');
+            document.querySelector(`.nav-item[data-page="${pageName}"]`).classList.add('active');
+            
+            // Load page-specific content
+            switch(pageName) {
+                case 'Dashboard':
+                    updateDashboard();
+                    break;
+                case 'Study':
+                    checkActiveSession();
+                    break;
+                case 'Quests':
+                    renderQuests('daily');
+                    break;
+                case 'Skills':
+                    renderSkills();
+                    break;
+                case 'Habits':
+                    renderHabits();
+                    break;
+                case 'Mocks':
+                    renderMocks();
+                    break;
+                case 'Rewards':
+                    renderRewards();
+                    break;
+                case 'Awakening':
+                    renderAwakening();
+                    break;
+                case 'Report':
+                    renderReport();
+                    break;
+            }
+        }
+
+        function checkActiveSession() {
+            if (appData.activeSession) {
+                if (appData.activeSession.evidence) {
+                    // Was in confirmation stage
+                    showStudyStage(3);
+                } else {
+                    showStudyStage(2);
+                    startTimer();
+                    updateStudyUI();
+                }
+            } else {
+                showStudyStage(1);
+            }
+        }
+
+        // ============ TOAST NOTIFICATIONS ============
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type} show`;
+            toast.innerHTML = message;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // ============ EVENT LISTENERS ============
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            updateDashboard();
+            
+            // Navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(item.dataset.page);
+                });
+            });
+            
+            // Study page
+            document.getElementById('btnStartStudy').addEventListener('click', startStudySession);
+            document.getElementById('btnPauseStudy').addEventListener('click', pauseStudy);
+            document.getElementById('btnEndStudy').addEventListener('click', endStudySession);
+            document.getElementById('btnConfirmStudy').addEventListener('click', confirmStudySession);
+            
+            // Evidence character counter
+            document.getElementById('studyEvidence').addEventListener('input', (e) => {
+                document.getElementById('evidenceCharCount').textContent = e.target.value.length;
+            });
+            
+            // Quest tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    renderQuests(tab.dataset.tab);
+                });
+            });
+            
+            // Mocks
+            document.getElementById('btnRecordMock').addEventListener('click', recordMock);
+            
+            // Vision modals
+            document.getElementById('btnEditVision').addEventListener('click', () => openVisionModal('vision'));
+            document.getElementById('btnEditAntiVision').addEventListener('click', () => openVisionModal('antiVision'));
+            document.getElementById('btnCancelVision').addEventListener('click', closeVisionModal);
+            document.getElementById('btnSaveVision').addEventListener('click', saveVision);
+            
+            // PDF Export
+            document.getElementById('btnExportPDF').addEventListener('click', exportPDF);
+            
+            // Register service worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed:', err));
+            }
+        });
+
+        // Close modal on overlay click
+        document.getElementById('modalVision').addEventListener('click', (e) => {
+            if (e.target.id === 'modalVision') {
+                closeVisionModal();
+            }
+        });
+    </script>
+</body>
+</html>
